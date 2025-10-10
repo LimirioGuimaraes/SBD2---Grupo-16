@@ -24,12 +24,7 @@ services:
     volumes:
       - ./silver:/app
       - ./raw:/raw
-    command: >
-      jupyter nbconvert
-      --to notebook
-      --execute etl_pipeline.ipynb
-      --inplace
-      --allow-errors
+      - postgres_data:/var/lib/postgresql/data 
 
   pgadmin:
     image: dpage/pgadmin4
